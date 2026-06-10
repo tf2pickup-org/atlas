@@ -22,8 +22,6 @@ await app.register(await import('@fastify/helmet'), {
     environment.NODE_ENV === 'production'
       ? {
           directives: {
-            // allow instance favicons
-            imgSrc: ["'self'", 'data:', 'https:'],
             // allow the onerror="this.remove()" favicon fallback
             scriptSrcAttr: [
               "'unsafe-hashes'",

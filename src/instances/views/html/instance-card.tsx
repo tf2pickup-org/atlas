@@ -13,7 +13,7 @@ export function InstanceCard(props: { instance: InstanceModel }) {
       <div class="flex items-center justify-between gap-2">
         <div class="flex min-w-0 items-center gap-2.5">
           <img
-            src={`${instance.url}/favicon.ico`}
+            src={`/instances/favicon?url=${encodeURIComponent(instance.url)}`}
             alt=""
             class="size-6 shrink-0"
             loading="lazy"
