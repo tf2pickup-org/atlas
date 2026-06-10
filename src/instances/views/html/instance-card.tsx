@@ -10,10 +10,19 @@ export function InstanceCard(props: { instance: InstanceModel }) {
       href={instance.url}
       class="bg-abru-light-5 hover:bg-abru-light-10 border-abru-light-15 flex flex-col gap-4 rounded-lg border p-5 transition-colors"
     >
-      <div class="flex items-baseline justify-between gap-2">
-        <span class="text-ash truncate text-xl font-bold" safe>
-          {instance.name}
-        </span>
+      <div class="flex items-center justify-between gap-2">
+        <div class="flex min-w-0 items-center gap-2.5">
+          <img
+            src={`${instance.url}/favicon.ico`}
+            alt=""
+            class="size-6 shrink-0"
+            loading="lazy"
+            onerror="this.remove()"
+          />
+          <span class="text-ash truncate text-xl font-bold" safe>
+            {instance.name}
+          </span>
+        </div>
         <span
           class="bg-abru-light-15 text-abru-light-70 rounded-full px-2.5 py-0.5 text-sm font-medium whitespace-nowrap"
           safe
