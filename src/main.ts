@@ -18,7 +18,20 @@ logger.info(`starting atlas ${version}`)
 await ensureIndexes()
 
 await app.register(await import('@fastify/helmet'), {
-  contentSecurityPolicy: environment.NODE_ENV === 'production',
+  contentSecurityPolicy:
+    environment.NODE_ENV === 'production'
+      ? {
+          directives: {
+            // allow instance favicons
+            imgSrc: ["'self'", 'data:', 'https:'],
+            // allow the onerror="this.remove()" favicon fallback
+            scriptSrcAttr: [
+              "'unsafe-hashes'",
+              "'sha256-9f8ZK5epjuMsYtXFjPqrgJI0L4QOAUYmJdHtT+RSH/c='",
+            ],
+          },
+        }
+      : false,
 })
 await app.register(await import('@fastify/sensible'))
 await app.register(await import('@fastify/static'), {
