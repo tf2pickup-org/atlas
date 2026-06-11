@@ -1,5 +1,6 @@
 import { formatDistanceToNow } from 'date-fns'
 import type { InstanceModel } from '../../../database/models/instance.model'
+import { LiveGamesIndicator } from './live-games-indicator'
 
 export function InstanceCard(props: { instance: InstanceModel }) {
   const { instance } = props
@@ -23,12 +24,15 @@ export function InstanceCard(props: { instance: InstanceModel }) {
             {instance.name}
           </span>
         </div>
-        <span
-          class="bg-abru-light-15 text-abru-light-70 rounded-full px-2.5 py-0.5 text-sm font-medium whitespace-nowrap"
-          safe
-        >
-          {instance.queue.config}
-        </span>
+        <div class="flex shrink-0 items-center gap-2.5">
+          {instance.liveGames ? <LiveGamesIndicator count={instance.liveGames} /> : <></>}
+          <span
+            class="bg-abru-light-15 text-abru-light-70 rounded-full px-2.5 py-0.5 text-sm font-medium whitespace-nowrap"
+            safe
+          >
+            {instance.queue.config}
+          </span>
+        </div>
       </div>
 
       <div class="flex gap-6">

@@ -22,6 +22,7 @@ describe('upsertInstance()', () => {
       version: '4.10.2',
       queue: { config: '6v6', occupied: 7, capacity: 12 },
       onlinePlayers: 23,
+      liveGames: 2,
     })
 
     expect(collections.instances.updateOne).toHaveBeenCalledWith(
@@ -33,10 +34,26 @@ describe('upsertInstance()', () => {
           version: '4.10.2',
           queue: { config: '6v6', occupied: 7, capacity: 12 },
           onlinePlayers: 23,
+          liveGames: 2,
           lastSeenAt: expect.any(Date),
         },
         $setOnInsert: { firstSeenAt: expect.any(Date) },
       },
+      { upsert: true },
+    )
+  })
+
+  it('unsets liveGames when the heartbeat does not report it', async () => {
+    await upsertInstance({
+      url: 'https://tf2pickup.pl',
+      name: 'tf2pickup.pl',
+      queue: { config: '6v6', occupied: 7, capacity: 12 },
+      onlinePlayers: 23,
+    })
+
+    expect(collections.instances.updateOne).toHaveBeenCalledWith(
+      { url: 'https://tf2pickup.pl' },
+      expect.objectContaining({ $unset: { liveGames: '' } }),
       { upsert: true },
     )
   })

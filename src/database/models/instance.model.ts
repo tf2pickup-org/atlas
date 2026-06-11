@@ -9,6 +9,7 @@ export interface InstanceModel {
     capacity: number
   }
   onlinePlayers: number
+  liveGames?: number
   lastSeenAt: Date
   firstSeenAt: Date
 }

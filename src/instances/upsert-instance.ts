@@ -9,6 +9,7 @@ export async function upsertInstance(heartbeat: z.infer<typeof heartbeatSchema>)
     { url },
     {
       $set: { ...heartbeat, url, lastSeenAt: now },
+      ...(heartbeat.liveGames === undefined ? { $unset: { liveGames: '' } } : {}),
       $setOnInsert: { firstSeenAt: now },
     },
     { upsert: true },

@@ -10,4 +10,5 @@ export const heartbeatSchema = z.object({
     capacity: z.number().int().positive(),
   }),
   onlinePlayers: z.number().int().nonnegative(),
+  liveGames: z.number().int().nonnegative().optional(),
 })
