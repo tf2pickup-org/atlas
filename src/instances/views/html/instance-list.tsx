@@ -15,7 +15,7 @@ export async function InstanceList() {
       {onlinePlayers > 0 ? (
         <p class="text-abru-light-50 mb-4 text-sm">
           <span class="text-ash font-bold tabular-nums">{onlinePlayers}</span>{' '}
-          {onlinePlayers === 1 ? 'player' : 'players'} online players
+          {onlinePlayers === 1 ? 'player' : 'players'} online
         </p>
       ) : (
         <></>
