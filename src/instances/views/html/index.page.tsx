@@ -1,4 +1,5 @@
 import { Layout } from '../../../html/layout'
+import { ActivityChart } from '../../../activity/views/html/activity-chart'
 import { InstanceList } from './instance-list'
 
 export function IndexPage() {
@@ -9,6 +10,8 @@ export function IndexPage() {
           <h1 class="text-ash text-4xl font-black">atlas</h1>
           <p class="text-abru-light-50 text-lg">online tf2pickup.org instances</p>
         </header>
+
+        <ActivityChart />
 
         <div id="instances" hx-get="/instances" hx-trigger="every 30s" hx-swap="innerHTML">
           <InstanceList />
