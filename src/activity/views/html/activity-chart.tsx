@@ -28,7 +28,10 @@ export async function ActivityChart() {
     <section class="bg-abru-light-3 border-abru-light-15 mb-8 rounded-xl border p-5">
       <div class="mb-4 flex flex-col gap-1">
         <h2 class="text-ash text-lg font-bold">
-          <span class="tabular-nums">{total.toLocaleString('en-US')}</span> games launched
+          <span class="tabular-nums" safe>
+            {total.toLocaleString('en-US')}
+          </span>{' '}
+          games launched
         </h2>
         <p class="text-abru-light-50 text-sm">across all pickups in the last year</p>
       </div>
@@ -37,14 +40,18 @@ export async function ActivityChart() {
         <div class="inline-flex flex-col gap-1">
           <div class="flex gap-1 pl-9">
             {monthLabels.map(label => (
-              <div class="text-abru-light-50 w-3.5 text-xs whitespace-nowrap">{label}</div>
+              <div class="text-abru-light-50 w-3.5 text-xs whitespace-nowrap" safe>
+                {label}
+              </div>
             ))}
           </div>
 
           <div class="flex gap-1">
             <div class="text-abru-light-50 flex w-8 flex-col gap-1 text-xs">
               {weekdayLabels.map(label => (
-                <div class="flex h-3.5 items-center leading-none">{label}</div>
+                <div class="flex h-3.5 items-center leading-none" safe>
+                  {label}
+                </div>
               ))}
             </div>
 
