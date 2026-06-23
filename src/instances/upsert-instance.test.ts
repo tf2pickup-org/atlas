@@ -5,25 +5,34 @@ import { collections } from '../database/collections'
 vi.mock('../database/collections', () => ({
   collections: {
     instances: {
+      findOne: vi.fn(),
+      updateOne: vi.fn(),
+    },
+    dailyGames: {
       updateOne: vi.fn(),
     },
   },
 }))
 
+const heartbeat = {
+  url: 'https://tf2pickup.pl/some/path',
+  name: 'tf2pickup.pl',
+  version: '4.10.2',
+  queue: { config: '6v6', occupied: 7, capacity: 12 },
+  onlinePlayers: 23,
+  liveGames: 2,
+}
+
 describe('upsertInstance()', () => {
   beforeEach(() => {
+    vi.mocked(collections.instances.findOne).mockReset()
     vi.mocked(collections.instances.updateOne).mockClear()
+    vi.mocked(collections.dailyGames.updateOne).mockClear()
+    vi.mocked(collections.instances.findOne).mockResolvedValue(null)
   })
 
   it('upserts the instance keyed by the normalized url', async () => {
-    await upsertInstance({
-      url: 'https://tf2pickup.pl/some/path',
-      name: 'tf2pickup.pl',
-      version: '4.10.2',
-      queue: { config: '6v6', occupied: 7, capacity: 12 },
-      onlinePlayers: 23,
-      liveGames: 2,
-    })
+    await upsertInstance(heartbeat)
 
     expect(collections.instances.updateOne).toHaveBeenCalledWith(
       { url: 'https://tf2pickup.pl' },
@@ -71,5 +80,33 @@ describe('upsertInstance()', () => {
       expect.anything(),
       { upsert: true },
     )
+  })
+
+  it('records the rise in live games as games launched', async () => {
+    vi.mocked(collections.instances.findOne).mockResolvedValue({ liveGames: 2 })
+
+    await upsertInstance({ ...heartbeat, liveGames: 5 })
+
+    expect(collections.dailyGames.updateOne).toHaveBeenCalledWith(
+      { day: expect.any(String) },
+      { $inc: { gamesLaunched: 3 } },
+      { upsert: true },
+    )
+  })
+
+  it('does not record anything when live games did not rise', async () => {
+    vi.mocked(collections.instances.findOne).mockResolvedValue({ liveGames: 5 })
+
+    await upsertInstance({ ...heartbeat, liveGames: 3 })
+
+    expect(collections.dailyGames.updateOne).not.toHaveBeenCalled()
+  })
+
+  it('does not count an instance seen for the first time', async () => {
+    vi.mocked(collections.instances.findOne).mockResolvedValue(null)
+
+    await upsertInstance({ ...heartbeat, liveGames: 4 })
+
+    expect(collections.dailyGames.updateOne).not.toHaveBeenCalled()
   })
 })

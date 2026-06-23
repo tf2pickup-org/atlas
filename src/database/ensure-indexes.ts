@@ -11,5 +11,6 @@ export async function ensureIndexes() {
     { lastSeenAt: 1 },
     { expireAfterSeconds: hoursToSeconds(instanceTtlHours) },
   )
+  await collections.dailyGames.createIndex({ day: 1 }, { unique: true })
   logger.info('indexes ensured')
 }
