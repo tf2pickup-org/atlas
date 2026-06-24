@@ -37,9 +37,9 @@ describe('buildWeeks()', () => {
 describe('activityLevel()', () => {
   it('buckets counts into five levels', () => {
     expect(activityLevel(0)).toBe(0)
-    expect(activityLevel(2)).toBe(1)
-    expect(activityLevel(5)).toBe(2)
-    expect(activityLevel(9)).toBe(3)
+    expect(activityLevel(9)).toBe(1)
+    expect(activityLevel(19)).toBe(2)
+    expect(activityLevel(29)).toBe(3)
     expect(activityLevel(50)).toBe(4)
   })
 })
