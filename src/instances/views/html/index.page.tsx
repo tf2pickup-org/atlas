@@ -1,5 +1,6 @@
 import { Layout } from '../../../html/layout'
 import { ActivityChart } from '../../../activity/views/html/activity-chart'
+import { ActivePlayersStat } from '../../../players/views/html/active-players-stat'
 import { InstanceList } from './instance-list'
 
 export function IndexPage() {
@@ -12,6 +13,8 @@ export function IndexPage() {
         </header>
 
         <ActivityChart />
+
+        <ActivePlayersStat />
 
         <div id="instances" hx-get="/instances" hx-trigger="every 30s" hx-swap="innerHTML">
           <InstanceList />
