@@ -91,8 +91,8 @@ importers:
         specifier: 10.4.1
         version: 10.4.1(jiti@2.7.0)
       pino-princess:
-        specifier: 1.6.1
-        version: 1.6.1(typescript@6.0.3)
+        specifier: 1.6.3
+        version: 1.6.3(typescript@6.0.3)
       prettier:
         specifier: 3.8.4
         version: 3.8.4
@@ -1274,6 +1274,9 @@ packages:
   get-value@4.0.1:
     resolution: {integrity: sha512-QTDzwunK3V+VlJJlL0BlCzebAaE8OSlUC+UVd80PiekTw1gpzQSb3cfEQB2LYFWr1lbWfbdqL4pjAoJDPCLxhQ==}
 
+  get-value@4.1.0:
+    resolution: {integrity: sha512-mKjrL73VxCUixi0Qe9OuerDVkm+475FeNwM5zZpjK6TK/a7fqv/dGI7vkRgvWkyw1xQ9Fl+wKuOUgPkE6aYB3w==}
+
   glob-parent@5.1.2:
     resolution: {integrity: sha512-AOIgSQCepiJYwP3ARnGx+5VnTu2HBYdzbGP45eLw1vr3zB3vZLeyed1sC9hnbcOc9/SrMyM5RPQrkGz4aS9Zow==}
     engines: {node: '>= 6'}
@@ -1765,8 +1768,8 @@ packages:
   pino-abstract-transport@3.0.0:
     resolution: {integrity: sha512-wlfUczU+n7Hy/Ha5j9a/gZNy7We5+cXp8YL+X+PG8S0KXxw7n/JXA3c46Y0zQznIJ83URJiwy7Lh56WLokNuxg==}
 
-  pino-princess@1.6.1:
-    resolution: {integrity: sha512-MMfQDdFmzR4eE3V7HNhu7EZ/TIT40iRmaBU8dqM4fA0HGEmfO/QzpdpyZxIbcpnqhdCOfj50fr80FqT1rWPVWA==}
+  pino-princess@1.6.3:
+    resolution: {integrity: sha512-Qf+IUg5SnhJVPzDVYNpGH1cCseOo//aglM0F51mtydv2aLKz+klcmKfFtuUSxYYviTA7WtgSbXP5wx+jZCRvjw==}
     engines: {node: '>=22'}
     hasBin: true
 
@@ -2152,6 +2155,9 @@ packages:
 
   sonic-boom@4.2.1:
     resolution: {integrity: sha512-w6AxtubXa2wTXAUsZMMWERrsIRAdrK0Sc+FUytWvYAhBJLyuI4llrMIC1DtlNSdI99EI86KZum2MMq3EAZlF9Q==}
+
+  sonic-boom@5.0.0:
+    resolution: {integrity: sha512-znaUCPgeMBOX0vAuccd6GmnxtraZSB2y6VKepSPhG9P4A6Dvw2MKFVt12036vrSZqN9mWAt6oM1239/lPYyM4w==}
 
   source-map-js@1.2.1:
     resolution: {integrity: sha512-UXWMKhLOwVKb728IUtQPXxfYU+usdybtUrK/8uGE8CQMvrhOpwvzDBwj0QhSL7MQc7vIsISBG8VQ8+IDQxpfQA==}
@@ -3596,6 +3602,8 @@ snapshots:
 
   get-value@4.0.1: {}
 
+  get-value@4.1.0: {}
+
   glob-parent@5.1.2:
     dependencies:
       is-glob: 4.0.3
@@ -3982,13 +3990,13 @@ snapshots:
     dependencies:
       split2: 4.2.0
 
-  pino-princess@1.6.1(typescript@6.0.3):
+  pino-princess@1.6.3(typescript@6.0.3):
     dependencies:
       chalk: 5.6.2
       cli-highlight: 2.1.11
       cosmiconfig: 9.0.2(typescript@6.0.3)
       date-fns: 4.4.0
-      get-value: 4.0.1
+      get-value: 4.1.0
       is-unicode-supported: 2.1.0
       json-log-line: 1.1.3
       json-stringify-pretty-compact: 4.0.0
@@ -3996,7 +4004,7 @@ snapshots:
       pino-abstract-transport: 3.0.0
       pretty-ms: 9.3.0
       pump: 3.0.4
-      sonic-boom: 4.2.1
+      sonic-boom: 5.0.0
     transitivePeerDependencies:
       - typescript
 
@@ -4304,6 +4312,10 @@ snapshots:
   slash@5.1.0: {}
 
   sonic-boom@4.2.1:
+    dependencies:
+      atomic-sleep: 1.0.0
+
+  sonic-boom@5.0.0:
     dependencies:
       atomic-sleep: 1.0.0
 
