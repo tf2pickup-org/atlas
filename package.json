@@ -42,7 +42,7 @@
   "devDependencies": {
     "@eslint/js": "10.0.1",
     "@tsconfig/strictest": "2.0.8",
-    "@types/node": "24.13.1",
+    "@types/node": "24.13.3",
     "cpy-cli": "7.0.0",
     "eslint": "10.8.0",
     "pino-princess": "1.6.3",
