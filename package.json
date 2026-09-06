@@ -46,7 +46,7 @@
     "cpy-cli": "7.0.0",
     "eslint": "10.9.1",
     "pino-princess": "1.6.3",
-    "prettier": "3.8.4",
+    "prettier": "3.9.6",
     "prettier-plugin-tailwindcss": "0.8.1",
     "rimraf": "6.1.3",
     "tsc-alias": "1.8.17",
