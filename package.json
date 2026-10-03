@@ -16,7 +16,7 @@
     "postbuild": "cpy public dist && cpy src/**/*.css dist/src"
   },
   "dependencies": {
-    "@fastify/autoload": "6.3.1",
+    "@fastify/autoload": "6.5.0",
     "@fastify/helmet": "13.0.2",
     "@fastify/sensible": "6.0.5",
     "@fastify/static": "9.1.3",
