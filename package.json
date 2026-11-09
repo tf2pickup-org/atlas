@@ -44,7 +44,7 @@
     "@tsconfig/strictest": "2.0.8",
     "@types/node": "24.19.2",
     "cpy-cli": "7.0.0",
-    "eslint": "10.12.0",
+    "eslint": "10.14.0",
     "pino-princess": "1.6.3",
     "prettier": "3.9.10",
     "prettier-plugin-tailwindcss": "0.8.1",
