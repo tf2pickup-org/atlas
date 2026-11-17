@@ -18,7 +18,7 @@
   "dependencies": {
     "@fastify/autoload": "6.5.1",
     "@fastify/helmet": "13.2.0",
-    "@fastify/sensible": "6.0.7",
+    "@fastify/sensible": "6.0.8",
     "@fastify/static": "9.3.0",
     "@kitajs/fastify-html-plugin": "4.2.1",
     "@kitajs/html": "4.2.13",
