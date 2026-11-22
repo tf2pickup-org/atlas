@@ -19,7 +19,7 @@
     "@fastify/autoload": "6.5.1",
     "@fastify/helmet": "13.2.0",
     "@fastify/sensible": "6.0.8",
-    "@fastify/static": "9.3.0",
+    "@fastify/static": "10.1.12",
     "@kitajs/fastify-html-plugin": "4.2.1",
     "@kitajs/html": "4.2.13",
     "@kitajs/ts-html-plugin": "4.1.4",
